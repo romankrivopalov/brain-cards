@@ -84,6 +84,10 @@ p {
   gap: 30px 10px;
 }
 
+.header__logo-link {
+  justify-self: start;
+}
+
 .header__logo {
   width: 200px;
 }
