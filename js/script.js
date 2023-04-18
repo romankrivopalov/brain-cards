@@ -4,7 +4,19 @@ const initApp = () => {
   const headerParent = document.querySelector('.header'),
         app = document.querySelector('#app');
 
-  createHeader(headerParent);
+  const headerObj = createHeader(headerParent);
+
+  const returnIndex = e => {
+    e.preventDefault();
+
+    headerObj.updateHeaderTitle('Категории')
+  }
+
+  headerObj.headerLogoLink.addEventListener('click', returnIndex);
+
+  headerObj.headerBtn.addEventListener('click', () => {
+    headerObj.updateHeaderTitle('Новая категория');
+  });
 };
 
 initApp();
