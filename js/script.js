@@ -2,6 +2,7 @@ import { createHeader } from "./components/createHeader.js";
 import { createCategory } from "./components/createCategory.js";
 import { createElement } from "./helper/createElement.js";
 import { fetchCategories } from "./service/api.service.js";
+import { createEditCategory } from "./components/createEditCategory.js";
 
 const initApp = async () => {
   const headerParent = document.querySelector('.header'),
@@ -9,9 +10,16 @@ const initApp = async () => {
 
   const headerObj = createHeader(headerParent);
   const categoryObj = createCategory(app);
+  const editCategory = createEditCategory(app);
+
+  const allSectionUnmount = () => {
+    [categoryObj, editCategory].forEach(obj => obj.unmount());
+  }
 
   const renderIndex = async e => {
     e?.preventDefault();
+
+    allSectionUnmount();
 
     const categories = await fetchCategories();
 
@@ -32,8 +40,9 @@ const initApp = async () => {
   headerObj.headerLogoLink.addEventListener('click', renderIndex);
 
   headerObj.headerBtn.addEventListener('click', () => {
+    allSectionUnmount();
     headerObj.updateHeaderTitle('Новая категория');
-    categoryObj.unmount();
+    editCategory.mount();
   });
 };
 
