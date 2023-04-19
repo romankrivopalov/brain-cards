@@ -1,4 +1,5 @@
 import { createElement } from "../helper/createElement.js"
+import { declOfNum } from "../helper/declOfNum.js";
 
 export const createCategory = (app) => {
   const category = createElement('section', {
@@ -24,33 +25,33 @@ export const createCategory = (app) => {
 
     li.dataset.id = data.id;
 
-    const categoryCardBtn = createElement('button', {
+    const btnCard = createElement('button', {
       className: 'category__card',
     });
 
-    const categoryTitle = createElement('span', {
+    const titleText = createElement('span', {
       className: 'category__title',
       textContent: data.title,
     });
 
-    const categoryPairs = createElement('span', {
+    const countPairs = createElement('span', {
       className: 'category__pairs',
-      textContent: data.length,
+      textContent: declOfNum(data.length, ['пара', 'пары', 'пар']),
     });
 
-    categoryCardBtn.append(categoryTitle, categoryPairs);
+    btnCard.append(titleText, countPairs);
 
-    const categoryCardEditBtn = createElement('button', {
+    const btnEdit = createElement('button', {
       className: 'category__btn category__edit',
       ariaLabel: 'редактировать',
     });
 
-    const categoryCardDelBtn = createElement('button', {
+    const btnDelete = createElement('button', {
       className: 'category__btn category__del',
       ariaLabel: 'удалить',
     });
 
-    li.append(categoryCardBtn, categoryCardEditBtn, categoryCardDelBtn);
+    li.append(btnCard, btnEdit, btnDelete);
 
     return li;
   }
