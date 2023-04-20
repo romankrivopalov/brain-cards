@@ -1,7 +1,7 @@
 import { createHeader } from "./components/createHeader.js";
 import { createCategory } from "./components/createCategory.js";
 import { createElement } from "./helper/createElement.js";
-import { fetchCategories } from "./service/api.service.js";
+import { fetchCards, fetchCategories } from "./service/api.service.js";
 import { createEditCategory } from "./components/createEditCategory.js";
 
 const initApp = async () => {
@@ -44,6 +44,18 @@ const initApp = async () => {
     headerObj.updateHeaderTitle('Новая категория');
     editCategory.mount();
   });
+
+  categoryObj.categoryList.addEventListener('click', async ({ target }) => {
+    const categoryItem = target.closest('.category__item');
+
+    if (target.closest('.category__edit')) {
+      const dataCards = await fetchCards(categoryItem.dataset.id);
+      allSectionUnmount();
+      headerObj.updateHeaderTitle('Редактирование');
+      editCategory.mount(dataCards);
+      return;
+    }
+  })
 };
 
 initApp();
