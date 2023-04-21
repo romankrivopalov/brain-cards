@@ -13,4 +13,4 @@
 * Accessibility
 
 ***
-[Открыть сайт в браузере](https://romankrivopalov.github.io/brain-cards/)\
+[Открыть сайт в браузере](https://romankrivopalov.github.io/brain-cards/)
