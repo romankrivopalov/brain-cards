@@ -1,6 +1,6 @@
 # **Сервис BrainCard**
 
-![preview](https://github.com/romankrivopalov/brain-cards/img/image.jpg?raw=true)
+![preview](https://github.com/romankrivopalov/brain-cards/blob/main/img/preview.png?raw=true)
 
 Веб сервис запоминаний слов, созданный в рамках прохождения интенсива онлайн школы Methed. Приложение позволяет создавать свои категории и пары слов, редактировать и удалять их.
 
