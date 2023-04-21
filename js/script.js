@@ -49,6 +49,18 @@ const initApp = async () => {
     categoryObj.mount(dataCategories);
   }
 
+  const cancelHandler = () => {
+    if(confirm('Выйти без изменений')) {
+      allSectionUnmount();
+
+      renderIndex();
+
+      editCategoryObj.btnCancel.removeEventListener('click', cancelHandler);
+    }
+
+    return;
+  }
+
   const renderIndex = async e => {
     e?.preventDefault();
 
@@ -79,6 +91,7 @@ const initApp = async () => {
     editCategoryObj.mount();
     editCategoryObj.btnSave.addEventListener('click', postHandler);
     editCategoryObj.btnSave.removeEventListener('click', patchHandler);
+    editCategoryObj.btnCancel.addEventListener('click', cancelHandler);
   });
 
   categoryObj.categoryList.addEventListener('click', async ({ target }) => {
@@ -91,6 +104,7 @@ const initApp = async () => {
       editCategoryObj.mount(dataCards);
       editCategoryObj.btnSave.addEventListener('click', patchHandler);
       editCategoryObj.btnSave.removeEventListener('click', postHandler);
+      editCategoryObj.btnCancel.addEventListener('click', cancelHandler);
       return;
     }
 
