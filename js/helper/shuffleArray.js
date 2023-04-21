@@ -1,10 +1,12 @@
 export const shuffleArray = arr => {
+  const newArr = [...arr];
+
   // тасование Фишера - Йетса
   for (let i = arr.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
+    const randomNumber = Math.floor(Math.random() * (i + 1));
 
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+    [newArr[i], newArr[randomNumber]] = [newArr[randomNumber], newArr[i]];
   }
 
-  return arr;
+  return newArr;
 }
