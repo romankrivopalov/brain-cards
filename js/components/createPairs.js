@@ -44,9 +44,9 @@ export const createPairs = (app) => {
       buttonCard.classList.remove('card__item_flipped');
 
       setTimeout(() => {
-        index++;
+        buttonCard.index++;
 
-        if (index === dataCards.length) {
+        if (buttonCard.index === dataCards.length) {
           front.textContent = 'the end';
           showAlert('Карточки закончились', 2000);
           setTimeout(() => {
@@ -56,8 +56,8 @@ export const createPairs = (app) => {
           return;
         }
 
-        front.textContent = dataCards[index][0];
-        back.textContent = dataCards[index][1];
+        front.textContent = dataCards[buttonCard.index][0];
+        back.textContent = dataCards[buttonCard.index][1];
         setTimeout(() => {
           buttonCard.addEventListener('click', flipCard);
         }, 200)
