@@ -11,3 +11,6 @@
 * CSS3
   * Адаптивный пользовательский интерфейс
 * Accessibility
+
+***
+[Открыть сайт в браузере](https://romankrivopalov.github.io/brain-cards/)\
