@@ -75,7 +75,6 @@ export const createPairs = (app) => {
   const mount = data => {
     app.append(pairs);
     cardControler(shuffleArray(data.pairs))
-    // console.log(shuffleArray(data.pairs))
   };
 
   const unmount = () => {
